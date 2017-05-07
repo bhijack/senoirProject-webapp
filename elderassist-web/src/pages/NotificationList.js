@@ -21,3 +21,6 @@ export default class NotificationList extends Component {
         );
     }
 }
+
+
+
