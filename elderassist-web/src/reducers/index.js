@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
 import NotificationReducer from './NotificationReducer';
 
-// export default  reducers = combineReducers({
-//     noti : NotificationReducer
-// })
+export const reducers = combineReducers({
+    noti : NotificationReducer
+})

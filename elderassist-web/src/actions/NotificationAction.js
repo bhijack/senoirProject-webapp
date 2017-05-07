@@ -1,29 +1,33 @@
 import {
-    ASKING_HELP_FETCH
+    ASKING_HELP_FETCH,
+    GET_NAME_OWNER
 } from './types';
 import * as firebase from 'firebase';
 
 
 export const notificationFetch = () => {
     return (dispatch) => {
-        firebase.database().ref('askingHelp/sampleHelp')
+        firebase.database().ref('askingHelp/')
             .on('value', snapshot => {
-                var items = [];
+                var asks = []
                 snapshot.forEach(data => {
-                    var item = {
-                        ask: data.val().help
+
+                    var ask = {
+                        owner: data.val().help.owner,
+                        situations: data.val().help.situations,
+                        timestamp: data.val().help.timestamp,
+                        status: data.val().help.status
                     }
-                    items.push(item.ask)
-                    // dispatch({
-                    //     type : ASKING_HELP_FETCH,
-                    //     payload : items
-                    // })
+                    asks.push(ask);
+
                 })
                 dispatch({
-                        type : ASKING_HELP_FETCH,
-                        payload : items
-                    })
+                    type: ASKING_HELP_FETCH,
+                    payload: asks
+                })
+
             })
     }
 
 }
+

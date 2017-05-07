@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar } from 'react-bootstrap';
+// import { Navbar } from 'react-bootstrap';
 
 import NarbarHead from '../components/NarbarHead';
 import ListNoti from '../components/ListNoti';

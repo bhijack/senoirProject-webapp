@@ -6,18 +6,19 @@ import './index.css';
 
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import ReduxThunk from 'react-redux';
+import ReduxThunk from 'redux-thunk';
 
-import reducers from './reducers';
+import {reducers} from './reducers';
 
 import NotificationList from './pages/NotificationList';
-import Test from './pages/TestPage';
+// import Test from './pages/TestPage';
 
-// const store = createStore(reducers, {}, applyMiddleware);
+const store = createStore(reducers, {},applyMiddleware(ReduxThunk));
 ReactDOM.render(
-  // <Provider store={store}>
+  
+  <Provider store={store}>
     <NotificationList />
-  // </Provider>
+ </Provider>
   ,
   document.getElementById('root')
 );
